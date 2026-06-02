@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Two Inputs Form</title>
+    <style>
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          Arial,
+          sans-serif;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 600;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.25rem;
+        box-sizing: border-box;
+      }
+      button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sample Form</h1>
+      <form id="sampleForm" action="#" method="post">
+        <label for="input1">Input 1</label>
+        <input
+          type="text"
+          id="input1"
+          name="input1"
+          placeholder="Enter first value"
+        />
+
+        <label for="input2">Input 2</label>
+        <input
+          type="text"
+          id="input2"
+          name="input2"
+          placeholder="Enter second value"
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div
+        id="result"
+        aria-live="polite"
+        style="margin-top: 1rem; color: #111"
+      ></div>
+    </div>
+
+    <script>
+      // Small handler to show submitted values without reloading the page
+      document
+        .getElementById("sampleForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const v1 = document.getElementById("input1").value;
+          const v2 = document.getElementById("input2").value;
+          document.getElementById("result").textContent =
+            "Submitted: " + v1 + " | " + v2;
+        });
+    </script>
+  </body>
+</html>
